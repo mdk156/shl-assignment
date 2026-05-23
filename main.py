@@ -5,6 +5,13 @@ from retriever import search_assessments
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+
+    return {
+        "message": "SHL Assignment API is running successfully"
+    }
+
 class Message(BaseModel):
     role: str
     content: str
@@ -46,7 +53,6 @@ def chat(request: ChatRequest):
             "end_of_conversation": True
         }
 
-    # Build response manually
     recommendation_names = []
 
     for rec in recommendations:
@@ -63,4 +69,3 @@ def chat(request: ChatRequest):
         "recommendations": recommendations,
         "end_of_conversation": True
     }
-
