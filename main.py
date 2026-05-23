@@ -5,19 +5,19 @@ from retriever import search_assessments
 
 app = FastAPI()
 
-@app.get("/")
-def home():
-
-    return {
-        "message": "SHL Assignment API is running successfully"
-    }
-
 class Message(BaseModel):
     role: str
     content: str
 
 class ChatRequest(BaseModel):
     messages: List[Message]
+
+@app.get("/")
+def home():
+
+    return {
+        "message": "SHL Assessment Recommendation API is running successfully"
+    }
 
 @app.get("/health")
 def health():
@@ -31,7 +31,6 @@ def chat(request: ChatRequest):
 
     latest_message = request.messages[-1].content
 
-    # Clarification logic
     if len(latest_message.split()) < 5:
 
         return {
@@ -44,7 +43,6 @@ def chat(request: ChatRequest):
         latest_message
     )
 
-    # No matches
     if not recommendations:
 
         return {
