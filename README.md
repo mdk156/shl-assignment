@@ -31,6 +31,14 @@ The system supports:
 
 ---
 
+## Live API
+
+Base URL:
+https://shl-assignment-ajuu.onrender.com
+
+Swagger Docs:
+https://shl-assignment-ajuu.onrender.com/docs
+
 # Project Structure
 
 ```text
@@ -129,3 +137,4 @@ Deployment on cloud platforms
 Author
 
 Meghana DK
+
